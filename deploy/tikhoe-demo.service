@@ -1,0 +1,22 @@
+[Unit]
+Description=KP Tikhoe demo
+After=network.target
+
+[Service]
+Type=simple
+User=tikhoe-demo
+Group=tikhoe-demo
+WorkingDirectory=/opt/tikhoe-demo/app
+EnvironmentFile=/etc/tikhoe-demo/app.env
+ExecStart=/opt/tikhoe-demo/node/bin/node /opt/tikhoe-demo/app/server.js
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/tikhoe-demo /opt/tikhoe-demo/app/.next/cache
+
+[Install]
+WantedBy=multi-user.target

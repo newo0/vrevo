@@ -1,0 +1,95 @@
+generator client {
+ provider = "prisma-client-js"
+ engineType = "client"
+}
+datasource db {
+ provider = "sqlite"
+ url = env("DATABASE_URL")
+}
+model Plot {
+ id String @id
+ number String
+ status String
+ areaM2 Float?
+ priceRub Int?
+ cadastralNumber String?
+ electricityKw Int? @default(15)
+ description String?
+ needsReview Boolean @default(false)
+ updatedAt DateTime @updatedAt
+}
+model Content {
+ id String @id @default("main")
+ json String
+ updatedAt DateTime @updatedAt
+}
+model Media {
+ id String @id
+ file String
+ title String
+ category String
+ author String
+ source String
+ license String
+ licenseUrl String?
+ publicationStatus String
+ date String?
+ order Int @default(0)
+ published Boolean @default(true)
+ visualization Boolean @default(false)
+ updatedAt DateTime @updatedAt
+}
+model Post {
+ id String @id @default(cuid())
+ title String
+ text String
+ date String
+ mediaId String?
+ published Boolean @default(false)
+ updatedAt DateTime @updatedAt
+}
+model Admin {
+ id String @id @default("admin")
+ passwordHash String
+ bootstrap Boolean @default(false)
+}
+model Session {
+ tokenHash String @id
+ expiresAt DateTime
+}
+model Lead {
+ id String @id @default(cuid())
+ requestKey String @unique
+ payloadHash String
+ name String?
+ phone String
+ date String?
+ comment String?
+ plotId String?
+ plotNumber String?
+ plotStatus String?
+ kind String
+ source String
+ pageUrl String
+ utm String
+ demo Boolean
+ processed Boolean @default(false)
+ createdAt DateTime @default(now())
+ deliveries Delivery[]
+}
+model Delivery {
+ id String @id @default(cuid())
+ leadId String
+ lead Lead @relation(fields:[leadId],references:[id])
+ recipient String
+ status String @default("pending")
+ error String?
+ attempts Int @default(0)
+ sentAt DateTime?
+ @@unique([leadId,recipient])
+}
+model RateLimit {
+ key String @id
+ count Int
+ resetAt DateTime
+}

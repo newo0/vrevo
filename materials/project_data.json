@@ -1,0 +1,139 @@
+{
+  "briefDate": "2026-10-20",
+  "language": "ru",
+  "name": {
+    "value": "Вревские дачи",
+    "status": "approved_by_owner",
+    "approvedOn": "2026-10-20"
+  },
+  "offering": "Участки без подряда",
+  "startingPricePerSotkaRub": 90000,
+  "individualPricesProvided": false,
+  "landUseProvidedByOwner": "Для дачного строительства",
+  "landCategory": null,
+  "address": "РФ, Ленинградская область, Лужский муниципальный район, Скребловское сельское поселение, территория АОЗТ \"Звездочка\"",
+  "lake": "Врево",
+  "natureReserve": "Череменецкий",
+  "entry": {
+    "latitude": 58.584476,
+    "longitude": 29.856943,
+    "mapUrl": "https://yandex.ru/maps/-/CXF2z8lS",
+    "coordinateOrder": "latitude, longitude"
+  },
+  "soldPlotNumbers": [
+    "68",
+    "69",
+    "70",
+    "71",
+    "72",
+    "99",
+    "100",
+    "101",
+    "102",
+    "103"
+  ],
+  "reservedPlotNumbers": [],
+  "defaultStatusForOtherTracedPlots": "available",
+  "plotCount": null,
+  "planNotes": [
+    "Оцифровать весь поселок из sources/genplan.pdf",
+    "Растровая схема, готовых векторных контуров нет",
+    "Максимальный номер 146 не считать подтвержденным количеством",
+    "В схеме повторяется номер 134; нужна сверка",
+    "Не присваивать номера спорным контурам по догадке"
+  ],
+  "infrastructure": {
+    "checkpoint": {
+      "status": "ready"
+    },
+    "mainRoads": {
+      "status": "ready",
+      "surface": null
+    },
+    "electricity": {
+      "status": "ready_at_plot_boundary",
+      "powerKw": 15,
+      "individualConnectionPaidSeparately": true
+    },
+    "water": {
+      "solution": "individual",
+      "specificType": null
+    },
+    "sewerage": {
+      "solution": "individual",
+      "specificType": null
+    },
+    "gas": {
+      "status": "not_planned"
+    },
+    "beach": {
+      "status": "planned",
+      "targetSeason": 2027,
+      "exactDate": null
+    },
+    "playground": {
+      "status": "planned",
+      "targetSeason": 2027,
+      "exactDate": null
+    },
+    "securityService": {
+      "status": "planned",
+      "targetSeason": 2027,
+      "exactDate": null
+    }
+  },
+  "maintenanceFees": {
+    "status": "not_determined",
+    "comment": "Будут обсуждаться при создании ТСЖ или УК; не обещать отсутствие взносов"
+  },
+  "paymentOptions": {
+    "fullPayment": true,
+    "mortgage": true,
+    "installments": "individual_terms",
+    "regionalMaternityCapital": "subject_to_program_conditions"
+  },
+  "salesContact": {
+    "name": "Владислав",
+    "phoneDisplay": "+7 911 777-44-86",
+    "phoneE164": "+79117774486"
+  },
+  "leadRecipients": [
+    "d@popov.tel",
+    "tichvlad@mail.ru"
+  ],
+  "publishRecipientEmailsAsContacts": false,
+  "adminRequired": true,
+  "sellingPoints": [
+    "Тишина",
+    "Озеро Врево",
+    "Природа Череменецкого заказника",
+    "Возможность постоянного проживания",
+    "Удобный автомобильный подъезд из Санкт-Петербурга",
+    "Близость Луги",
+    "Такси и доставка продуктов"
+  ],
+  "ownerProvidedTravelClaims": {
+    "lugaByCarMinutes": 10,
+    "usualTaxiWaitMinutes": [
+      5,
+      7
+    ],
+    "reconstruction": "Заказчик сообщил о завершающейся реконструкции дороги до двух полос в каждую сторону; конкретный участок и срок официально не подтверждены"
+  },
+  "directions": [
+    "Санкт-Петербург",
+    "Великий Новгород",
+    "Псков"
+  ],
+  "distanceAndTimeFromCities": null,
+  "photoSet": {
+    "count": 20,
+    "aerialCount": 3,
+    "recommendedHeroId": "P01",
+    "sourceManifest": "photo_sources.json",
+    "preview": "Vrevo_Photo_Selection.pdf",
+    "rightsConfirmedCount": 7,
+    "rightsToConfirmCount": 13,
+    "ownSettlementAerialAvailable": false
+  }
+}

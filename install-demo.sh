@@ -59,16 +59,17 @@ apt-get install -y --no-install-recommends ca-certificates curl nginx apache2-ut
 
 work_dir=$(mktemp -d /tmp/tikhoe-install.XXXXXXXX)
 trap 'rm -rf -- "$work_dir"' EXIT
-curl --fail --location --show-error --retry 3 "$release_url/tikhoe-demo.tar.gz" -o "$work_dir/tikhoe-demo.tar.gz"
+curl --fail --location --show-error --connect-timeout 20 --max-time 180 --retry 2 --retry-max-time 240 "$release_url/tikhoe-demo.tar.gz" -o "$work_dir/tikhoe-demo.tar.gz"
 printf '%s  %s\n' "$bundle_sha" "$work_dir/tikhoe-demo.tar.gz" | sha256sum --check -
 
 # Node is installed separately; do not change a system-wide Node installation.
+# This unmodified official archive was checked against nodejs.org SHASUMS256.txt
+# before mirroring in the release. The VPS only needs GitHub for both archives.
 node_version=v24.19.0
 node_file="node-$node_version-linux-x64.tar.xz"
-curl --fail --location --show-error --retry 3 "https://nodejs.org/dist/$node_version/$node_file" -o "$work_dir/$node_file"
-curl --fail --location --show-error --retry 3 "https://nodejs.org/dist/$node_version/SHASUMS256.txt" -o "$work_dir/SHASUMS256.txt"
-awk -v name="$node_file" '$2 == name {print}' "$work_dir/SHASUMS256.txt" > "$work_dir/node.sha256"
-[[ $(wc -l < "$work_dir/node.sha256") -eq 1 ]] || die 'Контрольная сумма Node.js не найдена.'
+node_sha=14b342e71204f811bde6153be8e04b62aef63c236fef92b55f9c83154b409647
+curl --fail --location --show-error --connect-timeout 20 --max-time 180 --retry 2 --retry-max-time 240 "$release_url/$node_file" -o "$work_dir/$node_file"
+printf '%s  %s\n' "$node_sha" "$node_file" > "$work_dir/node.sha256"
 (cd "$work_dir" && sha256sum --check node.sha256)
 mkdir -p "$app_root/node"
 tar -xJf "$work_dir/$node_file" -C "$app_root/node" --strip-components=1 --no-same-owner

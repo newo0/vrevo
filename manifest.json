@@ -1,0 +1,13 @@
+{
+  "project": "КП «Тихое»",
+  "sourceCommit": "270a665babbace97c30294d74f2a78adb483b1f0",
+  "os": "Ubuntu 24.04",
+  "arch": "x86_64",
+  "node": "24.19.0",
+  "mode": "demo",
+  "databaseContainsCredentials": false,
+  "databaseContainsLeads": false,
+  "standaloneBrowserChecked": true,
+  "nginxChecked": true,
+  "fullInstallerExecutedOnVps": false
+}
